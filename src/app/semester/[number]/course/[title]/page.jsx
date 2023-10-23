@@ -1,10 +1,9 @@
 // title page
 "use client";
-import { redirect } from "next/dist/server/api-utils";
 import Accordion from "../../../../components/Accordion";
 import React, { useEffect, useState } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const title = params.title.replaceAll("%20", " ");
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -16,7 +15,7 @@ const page = ({ params }) => {
         const data = await response.json();
         if (response.status == 200) {
           setItems(data);
-        } 
+        }
       } catch (error) {
         console.error("Error fetching code:", error);
       }
@@ -31,4 +30,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Folder = () => {
-  return (
-    <div>It's a Folder</div>
-  )
-}
+  return <div>Folder</div>;
+};
 
-export default Folder
+export default Folder;

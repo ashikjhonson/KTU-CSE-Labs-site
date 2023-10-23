@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const [items, setItems] = useState({});
 
   useEffect(() => {
@@ -52,4 +52,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
