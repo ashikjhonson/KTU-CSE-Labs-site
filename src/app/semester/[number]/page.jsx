@@ -13,7 +13,9 @@ const Page = ({ params }) => {
           `https://api.github.com/repos/ashikjhonson/KTU-CSE/contents/S${params.number}`
         );
         const data = await response.json();
-        setItems(data);
+        setItems(() => {
+          return data;
+        });
       } catch (error) {
         console.error("Error fetching code:", error);
       }

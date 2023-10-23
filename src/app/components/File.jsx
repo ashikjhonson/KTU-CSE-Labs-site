@@ -9,7 +9,9 @@ const File = ({ item, url }) => {
       const response = await fetch(url);
       const data = await response.json();
       const decodedContent = atob(data.content.replace(/\s/g, ""));
-      setDecodedString(decodedContent);
+      setDecodedString(() => {
+        return decodedContent;
+      });
     };
 
     fetchCode();

@@ -14,7 +14,9 @@ const Page = ({ params }) => {
         );
         const data = await response.json();
         if (response.status == 200) {
-          setItems(data);
+          setItems(() => {
+            return data;
+          });
         }
       } catch (error) {
         console.error("Error fetching code:", error);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -32,7 +32,10 @@ function Icon({ id, open }) {
 export default function AccordionCustomIcon({ items }) {
   const [open, setOpen] = useState(0);
 
-  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const handleOpen = (value) =>
+    setOpen(() => {
+      return open === value ? 0 : value;
+    });
 
   return (
     <div className="flex flex-col mt-3 gap-5 w-full md:w-[500px] lg:w-[700px]">
