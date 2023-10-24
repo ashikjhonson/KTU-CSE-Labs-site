@@ -1,5 +1,3 @@
-// number page
-
 import Link from "next/link";
 import courses from "../../courses";
 import { notFound } from "next/navigation";
@@ -13,7 +11,6 @@ const Page = ({ params }) => {
         Semester {params.number}
       </h1>
       <div className="mt-20">
-        <p className="text-xl mb-4">Courses</p>
         <div className="flex flex-col">
           {semester.Course.map((item) => {
             return (

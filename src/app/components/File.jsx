@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-
 const File = ({ title, code }) => {
-  // const copyHandler = () => {
-  //   navigator.clipboard.writeText(code);
-  // };
-  console.log("File:", title);
+  const copyHandler = () => {
+    navigator.clipboard.writeText(JSON.parse(code));
+  };
 
   return (
     <div className="p-1.5">
@@ -12,7 +9,7 @@ const File = ({ title, code }) => {
         <pre className="py-2 font-bold text-lg">{title}</pre>
         <button
           className="px-2 h-[30px] my-auto text-sm font-medium text-gray-900 outline-none bg-white rounded-lg border hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          // onClick={copyHandler}
+          onClick={copyHandler}
         >
           Copy
         </button>

@@ -1,4 +1,3 @@
-// title page
 "use client";
 import Accordion from "../../../../components/Accordion";
 import React, { useEffect, useState } from "react";
@@ -12,10 +11,6 @@ const Page = ({ params }) => {
       try {
         const response = await fetch(`/api/${sem}/${course}`);
         const data = await response.json();
-        
-        for (const keys of Object.keys(data)) {
-          // console.log(JSON.parse(data[keys]));
-        }
 
         if (response.status == 200) {
           setItems(() => {

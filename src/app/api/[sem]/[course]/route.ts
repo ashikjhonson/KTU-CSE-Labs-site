@@ -10,46 +10,33 @@ export async function GET(
     const response = await fetch(url);
     const data = await response.json();
     
-    console.log("Okay here")
-    // const urls = data.reduce((item, code)=>{      
-    //   if(code.type==="file"){
-    //     item[code.name] = code.download_url;        
-    //     return item;
-    //   }
-    // }, {})
     const urls = {}
     for (let i = 0; i < data.length; i++) {
       const code = data[i];
-      // console.log(code)
+      
       if (code.type === "file") {
         urls[code.name] = code.download_url;
-        // console.log(code.name)
-        // console.log(code.download_url)
-
       }
     }
-    // console.log(urls)
+    
 
     const codes = {};
     try {
       const fetchAllCode = async () => {
-        for (const title of Object.keys(urls)) {                   
-          console.log("title");
+        for (const title of Object.keys(urls)) {                             
           const response = await fetch(urls[title]); 
-          const data = await response.text();
-          data !== null ? console.log("data") : console.log('Data is null');
-         
-          // console.log(data)
+          const data = await response.text();                            
+
+          codes[title] = JSON.stringify(data);
           
-          codes[title] = JSON.stringify(data);//JSON.stringify(data);
+          
           
         }
       }
       await fetchAllCode();
     } catch (error) {
       console.log("error")
-    }
-    console.log("Everything ok in api");
+    }    
           
     return NextResponse.json(codes, {status: 200})
   }
