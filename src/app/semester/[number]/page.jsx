@@ -1,17 +1,12 @@
 // number page
-"use client";
+
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
 import courses from "../../courses";
 import { notFound } from "next/navigation";
 
 const Page = ({ params }) => {
   const semester = courses[params.number];
-
-  if (semester == undefined) {
-    notFound();
-  }
-
+  semester == undefined ? notFound() : null;
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
       <h1 className="font-bold text-4xl text-center">

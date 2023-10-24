@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -54,7 +54,7 @@ export default function AccordionCustomIcon({ items }) {
                 <AccordionBody>
                   <div className="overflow-hidden">
                     {item.type === "file" ? (
-                      <File item={item} url={item.url} />
+                      <File item={item} url={item.download_url} />
                     ) : (
                       <Folder />
                     )}

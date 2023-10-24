@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const File = ({ item, url }) => {
-  const [decodedString, setDecodedString] = useState("");  
+  const [code, setCode] = useState("");
 
   useEffect(() => {
     const fetchCode = async () => {
       const response = await fetch(url);
-      const data = await response.json();
-      const decodedContent = atob(data.content.replace(/\s/g, ""));
-      setDecodedString(() => {
-        return decodedContent;
+      const data = await response.text();
+      setCode(() => {
+        return data;
       });
     };
 
@@ -17,7 +16,7 @@ const File = ({ item, url }) => {
   }, []);
 
   const copyHandler = () => {
-    navigator.clipboard.writeText(decodedString);
+    navigator.clipboard.writeText(code);
   };
 
   return (
@@ -32,7 +31,7 @@ const File = ({ item, url }) => {
         </button>
       </div>
       <pre className="whitespace-pre-wrap overflow-hidden bg-gray-900 border border-t-0 px-2 md:px-5 py-3 font-semibold">
-        {decodedString}
+        {code}
       </pre>
     </div>
   );
