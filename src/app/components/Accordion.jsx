@@ -31,11 +31,22 @@ function Icon({ id, open }) {
 
 export default function AccordionCustomIcon({ items }) {
   const [open, setOpen] = useState(0);
+  const [code, setCode] = useState("");
 
-  const handleOpen = (value) =>
+  const fetchCode = async (url) => {
+    const response = await fetch(url);
+    const data = await response.text();
+    setCode(() => {
+      return data;
+    });
+  };
+
+  const handleOpen = async (value, url) => {
+    await fetchCode(url);
     setOpen(() => {
       return open === value ? 0 : value;
     });
+  };
 
   return (
     <div className="flex flex-col mt-3 gap-5 w-full md:w-[500px] lg:w-[700px]">
@@ -48,13 +59,15 @@ export default function AccordionCustomIcon({ items }) {
                 icon={<Icon id={name} open={name} />}
                 key={name}
               >
-                <AccordionHeader onClick={() => handleOpen(name)}>
+                <AccordionHeader
+                  onClick={() => handleOpen(name, item.download_url)}
+                >
                   <p className="capitalize">{name}</p>
                 </AccordionHeader>
                 <AccordionBody>
                   <div className="overflow-hidden">
                     {item.type === "file" ? (
-                      <File item={item} url={item.download_url} />
+                      <File item={item} code={code} /> //url={item.download_url}
                     ) : (
                       <Folder />
                     )}

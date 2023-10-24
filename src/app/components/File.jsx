@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const File = ({ item, url }) => {
-  const [code, setCode] = useState("");
+const File = ({ item, code }) => {
+  // const [code, setCode] = useState("");
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchCode = async () => {
       const response = await fetch(url);
       const data = await response.text();
@@ -13,7 +13,7 @@ const File = ({ item, url }) => {
     };
 
     fetchCode();
-  }, []);
+  }, []);*/
 
   const copyHandler = () => {
     navigator.clipboard.writeText(code);

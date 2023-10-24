@@ -4,13 +4,14 @@ import Accordion from "../../../../components/Accordion";
 import React, { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
+  const sem = params.number;
   const title = params.title.replaceAll("%20", " ");
   const [items, setItems] = useState([]);
   useEffect(() => {
     const fetchCode = async () => {
       try {
         const response = await fetch(
-          `https://api.github.com/repos/ashikjhonson/KTU-CSE/contents/S${params.number}/${title}`
+          `https://api.github.com/repos/ashikjhonson/KTU-CSE/contents/S${sem}/${title}`
         );
         const data = await response.json();
         if (response.status == 200) {
