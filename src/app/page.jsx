@@ -3,6 +3,7 @@ import Button from "./components/Button";
 
 export default function Home() {
   const semesters = [2, 3, 4, 5];
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <h1 className="font-bold text-4xl text-center">CSE Lab Programs.</h1>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const File = ({ item, url }) => {
-  const [decodedString, setDecodedString] = useState("");
-  //const [copy, setCopy] = useState("Copy");
+  const [decodedString, setDecodedString] = useState("");  
 
   useEffect(() => {
     const fetchCode = async () => {
