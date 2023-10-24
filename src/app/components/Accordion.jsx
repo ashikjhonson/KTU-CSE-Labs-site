@@ -33,10 +33,8 @@ export default function AccordionCustomIcon({ items }) {
   const [open, setOpen] = useState(0);
   // console.log(Object.keys(items));
 
-  const handleOpen = async (value, url) => {
-    setOpen(() => {
-      return open === value ? 0 : value;
-    });
+  const handleOpen = async (value) => {
+    setOpen(open === value ? 0 : value);
   };
 
   return (
@@ -51,19 +49,12 @@ export default function AccordionCustomIcon({ items }) {
                 icon={<Icon id={name} open={name} />}
                 key={name}
               >
-                <AccordionHeader
-                  onClick={() => handleOpen(name, item.download_url)}
-                >
+                <AccordionHeader onClick={() => handleOpen(name)}>
                   <p className="capitalize">{name}</p>
                 </AccordionHeader>
                 <AccordionBody>
                   <div className="overflow-hidden">
                     <File title={name} code={value} />
-                    {/* {item.type === "file" ? (
-                      <File item={item} /> //url={item.download_url}
-                    ) : (
-                      <Folder />
-                    )} */}
                   </div>
                 </AccordionBody>
               </Accordion>

@@ -28,7 +28,7 @@ export async function GET(
 
       }
     }
-    console.log(urls)
+    // console.log(urls)
 
     const codes = {};
     try {
@@ -49,7 +49,7 @@ export async function GET(
     } catch (error) {
       console.log("error")
     }
-    console.log(codes);
+    console.log("Everything ok in api");
           
     return NextResponse.json(codes, {status: 200})
   }
