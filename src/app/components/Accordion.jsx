@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -31,18 +31,9 @@ function Icon({ id, open }) {
 
 export default function AccordionCustomIcon({ items }) {
   const [open, setOpen] = useState(0);
-  const [code, setCode] = useState("");
-
-  const fetchCode = async (url) => {
-    const response = await fetch(url);
-    const data = await response.text();
-    setCode(() => {
-      return data;
-    });
-  };
+  // console.log(Object.keys(items));
 
   const handleOpen = async (value, url) => {
-    await fetchCode(url);
     setOpen(() => {
       return open === value ? 0 : value;
     });
@@ -50,9 +41,10 @@ export default function AccordionCustomIcon({ items }) {
 
   return (
     <div className="flex flex-col mt-3 gap-5 w-full md:w-[500px] lg:w-[700px]">
-      {items[0]
-        ? items.map((item) => {
-            let name = item.name.split(".")[0].replace("_", " ");
+      {items
+        ? Object.entries(items).map(([item, value]) => {
+            let name = item.split(".")[0].replace("_", " ");
+            console.log(name);
             return (
               <Accordion
                 open={open === name}
@@ -66,11 +58,12 @@ export default function AccordionCustomIcon({ items }) {
                 </AccordionHeader>
                 <AccordionBody>
                   <div className="overflow-hidden">
-                    {item.type === "file" ? (
-                      <File item={item} code={code} /> //url={item.download_url}
+                    <File title={name} code={value} />
+                    {/* {item.type === "file" ? (
+                      <File item={item} /> //url={item.download_url}
                     ) : (
                       <Folder />
-                    )}
+                    )} */}
                   </div>
                 </AccordionBody>
               </Accordion>

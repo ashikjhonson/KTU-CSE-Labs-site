@@ -5,15 +5,18 @@ import React, { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
   const sem = params.number;
-  const title = params.title.replaceAll("%20", " ");
+  const course = params.title.replaceAll("%20", " ");
   const [items, setItems] = useState([]);
   useEffect(() => {
     const fetchCode = async () => {
       try {
-        const response = await fetch(
-          `https://api.github.com/repos/ashikjhonson/KTU-CSE/contents/S${sem}/${title}`
-        );
+        const response = await fetch(`/api/${sem}/${course}`);
         const data = await response.json();
+        
+        for (const keys of Object.keys(data)) {
+          // console.log(JSON.parse(data[keys]));
+        }
+
         if (response.status == 200) {
           setItems(() => {
             return data;
@@ -27,7 +30,7 @@ const Page = ({ params }) => {
   }, []);
   return (
     <div className="flex min-h-screen flex-col items-center p-10">
-      <h1 className="font-medium text-2xl text-center my-5">{title}</h1>
+      <h1 className="font-medium text-2xl text-center my-5">{course}</h1>
       <Accordion items={items} />
     </div>
   );
