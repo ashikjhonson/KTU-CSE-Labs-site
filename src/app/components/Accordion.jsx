@@ -22,7 +22,7 @@ export default function AccordionCustomIcon({ items }) {
                   <h2>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">
-                        <p className="capitalize ml-5 text-lg">{name}</p>
+                        <p className="capitalize font-mono text-lg">{name}</p>
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
