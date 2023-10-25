@@ -15,14 +15,14 @@ export default function AccordionCustomIcon({ items }) {
       {items
         ? Object.entries(items).map(([item, value]) => {
             let name = item.split(".")[0].replace("_", " ");
-            console.log(name);
+
             return (
               <Accordion allowToggle key={item}>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">
-                        <p className="capitalize">{name}</p>
+                        <p className="capitalize ml-5 text-lg">{name}</p>
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
