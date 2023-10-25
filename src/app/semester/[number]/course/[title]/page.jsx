@@ -25,7 +25,9 @@ const Page = ({ params }) => {
   }, []);
   return (
     <div className="flex min-h-screen flex-col items-center p-10">
-      <h1 className="font-medium text-2xl text-center my-5">{course}</h1>
+      <h1 className="font-medium font-serif text-2xl text-center my-5">
+        {course}
+      </h1>
       <Accordion items={items} />
     </div>
   );

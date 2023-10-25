@@ -6,7 +6,7 @@ const Button = ({ semester }) => {
     <Link href={`/semester/${semester}`} className="outline-none">
       <button
         type="button"
-        className="text-white font-bold bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2.5 text-center mx-auto w-[200px] cursor-pointer"
+        className="text-white text-lg font-bold font-mono bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2 text-center mx-auto w-[200px] cursor-pointer"
       >
         Semester {semester}
       </button>

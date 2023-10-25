@@ -7,11 +7,11 @@ const Page = ({ params }) => {
   semester == undefined ? notFound() : null;
   return (
     <main className="flex flex-col items-center grow">
-      <h1 className="font-bold text-2xl sm:text-3xl text-center mt-16 sm:mt-5">
+      <h1 className="font-bold font-serif text-2xl sm:text-3xl text-center mt-16 sm:mt-5">
         Semester {params.number}
       </h1>
       <div className="mt-10 sm:mt-16">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-5">
           {semester.Course.map((item) => {
             return (
               <Link
@@ -23,7 +23,7 @@ const Page = ({ params }) => {
               >
                 <button
                   type="button"
-                  className="text-white font-bold bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2.5 text-center mb-5 mx-auto w-[300px] min-w-fit"
+                  className="text-white font-mono bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2.5 text-center mx-auto w-[300px] min-w-fit"
                 >
                   {item.Title}
                 </button>
