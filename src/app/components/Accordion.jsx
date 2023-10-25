@@ -1,5 +1,4 @@
 import File from "./File";
-import Folder from "./Folder";
 import {
   Accordion,
   AccordionItem,
