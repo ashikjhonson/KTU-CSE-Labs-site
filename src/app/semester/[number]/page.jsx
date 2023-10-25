@@ -6,11 +6,11 @@ const Page = ({ params }) => {
   const semester = courses[params.number];
   semester == undefined ? notFound() : null;
   return (
-    <main className="flex min-h-screen flex-col items-center p-10">
-      <h1 className="font-bold text-4xl text-center">
+    <main className="flex flex-col items-center grow">
+      <h1 className="font-bold text-2xl sm:text-3xl text-center mt-16 sm:mt-5">
         Semester {params.number}
       </h1>
-      <div className="mt-20">
+      <div className="mt-10 sm:mt-16">
         <div className="flex flex-col">
           {semester.Course.map((item) => {
             return (
