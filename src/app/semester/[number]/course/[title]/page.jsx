@@ -24,7 +24,7 @@ const Page = ({ params }) => {
     fetchCode();
   }, []);
   return (
-    <div className="flex min-h-screen flex-col items-center p-10">
+    <div className="flex min-h-screen flex-col items-center p-2 sm:p-10">
       <h1 className="font-medium font-serif text-2xl text-center my-5">
         {course}
       </h1>

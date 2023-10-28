@@ -23,7 +23,7 @@ const Page = ({ params }) => {
               >
                 <button
                   type="button"
-                  className="text-white font-mono bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2.5 text-center mx-auto w-[300px] min-w-fit"
+                  className="text-white font-mono bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl outline-none rounded-lg text-md py-2.5 text-center mx-auto w-[300px] min-w-fit hover:scale-105 duration-200 hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)] dark:hover:drop-shadow-none"
                 >
                   {item.Title}
                 </button>

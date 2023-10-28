@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "KTU Labs",
+  title: "KTU CSE Labs",
   description: "Site for KTU-CSE lab programs",
 };
 

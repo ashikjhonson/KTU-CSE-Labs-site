@@ -7,23 +7,24 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="flex justify-between items-center w-full h-25 px-5 sm:px-20 py-5 dark:text-white dark:bg-black nav">
+    <div className="flex justify-between items-center w-full h-25 px-5 sm:px-20 pt-10 sm:pt-8 dark:text-white dark:bg-black nav">
       <div>
         <Link href={"/"}>
-          <h1 className="font-bold text-2xl sm:text-4xl text-center">
-            CSE Lab Programs.
+          <h1 className="font-bold font-serif text-4xl sm:text-5xl text-center">
+            CSE Labs.
           </h1>
         </Link>
       </div>
 
       <ul className="hidden md:flex">
-        <li className="nav-links px-4 cursor-pointer capitalize font-medium hover:scale-105 duration-200 link-underline">
+        <li className="cursor-pointer px-1 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl text-white hover:scale-105 duration-200 hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] dark:hover:drop-shadow-[0_7px_8px_rgba(255,255,255,.25)]">
           <Link
+            onClick={() => setNav((nav) => !nav)}
             href={"https://github.com/ashikjhonson/KTU-CSE-Labs-site"}
             target="_blank"
-            className="flex gap-3 border border-gray-400 dark:border-gray-500 text-gray-700 dark:text-gray-400 hover:text-black hover:dark:text-white hover:border-black dark:hover:border-white px-3 py-1 rounded-full"
+            className="flex gap-3 px-2 align-middle justify-between font-mono"
           >
-            Star <FaGithub className="self-center" />
+            Star <FaGithub className="self-center text-lg dark:text-black" />
           </Link>
         </li>
       </ul>
@@ -41,14 +42,14 @@ const Navbar = () => {
 
       {nav && (
         <ul className="absolute right-6 top-20">
-          <li className="cursor-pointer px-3 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl text-white ">
+          <li className="cursor-pointer px- py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 border border-black rounded-full text-white ">
             <Link
               onClick={() => setNav((nav) => !nav)}
               href={"https://github.com/ashikjhonson/KTU-CSE-Labs-site"}
               target="_blank"
-              className="flex gap-3 px-2 align-middle justify-between"
+              className="flex gap-3 px-3 align-middle justify-between font-mono"
             >
-              Star <FaGithub className="self-center" />
+              Star <FaGithub className="self-center text-lg dark:text-black" />
             </Link>
           </li>
         </ul>
