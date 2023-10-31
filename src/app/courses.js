@@ -48,6 +48,10 @@ const courses = {
         Title: "SYSTEM SOFTWARE AND MICROPROCESSORS LAB",
         Code: "CSL 331",
       },
+      {
+        Title: "DATABASE MANAGEMENT SYSTEMS LAB",
+        Code: "CSL 333",
+      },
     ],
   },
 };
